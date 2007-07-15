@@ -1,25 +1,28 @@
-#
-Summary:	OpenMoko appplication manager applet
+Summary:	OpenMoko application manager applet
+Summary(pl.UTF-8):	Aplet zarządcy aplikacji dla OpenMoko
 Name:		openmoko-appmanager
 Version:	0.0.0.2360
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		X11/Applications
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	e69521f65edcd27aa71005bfa3d97a0b
 URL:		http://openmoko.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.10.7
-BuildRequires:	libmatchbox-devel >= 1.8
-BuildRequires:	openmoko-libs-devel
+BuildRequires:	glib2-devel >= 2.0
+# TODO
+BuildRequires:	libipkg-devel
+BuildRequires:	openmoko-libs-devel >= 0.0.1
+BuildRequires:	pkgconfig
 Requires:	openmoko-icons
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define openmokoname %(echo %{name} | sed -e 's/openmoko-//')
-
 %description
-OpenMoko appplication manager applet
+OpenMoko application (ipk packages) manager applet.
+
+%description -l pl.UTF-8
+Aplet zarządcy aplikacji (pakietów ipk) dla OpenMoko.
 
 %prep
 %setup -q
@@ -44,3 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README
+%attr(755,root,root) %{_bindir}/openmoko-appmanager
+%{_datadir}/openmoko-appmanager
+%{_desktopdir}/openoko-appmanager.desktop
+%{_pixmapsdir}/application-manager.png
