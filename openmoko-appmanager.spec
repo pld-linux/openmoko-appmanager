@@ -13,6 +13,7 @@ BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
 # TODO
 BuildRequires:	libipkg-devel
+BuildRequires:	libtool
 BuildRequires:	openmoko-libs-devel >= 0.0.1
 BuildRequires:	pkgconfig
 Requires:	openmoko-icons
